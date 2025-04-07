@@ -10,8 +10,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.markdown.toMarkdown
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.markdown.toMarkdown
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

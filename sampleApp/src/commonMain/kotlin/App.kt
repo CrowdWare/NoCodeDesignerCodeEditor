@@ -4,8 +4,8 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.richstyle.HighlightSpanStyle
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.richstyle.HighlightSpanStyle
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 val HIGHLIGHT = HighlightSpanStyle(Color(0x40FF0000))
@@ -15,7 +15,6 @@ enum class Destination {
 	TextEditor,
 	MarkdownEditor,
 	EmptyTextEditor,
-	SpellChecking,
 	CodeEditor
 }
 
@@ -70,11 +69,6 @@ fun App() {
 				Destination.EmptyTextEditor -> TextEditorDemoUi(
 					navigateTo = ::navigateTo,
 					demoContent = DemoContent.Empty,
-					configuration = markdownScheme,
-				)
-
-				Destination.SpellChecking -> SpellCheckingTextEditorDemoUi(
-					navigateTo = ::navigateTo,
 					configuration = markdownScheme,
 				)
 

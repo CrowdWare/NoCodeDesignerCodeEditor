@@ -4,7 +4,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import com.darkrockstudios.texteditor.state.SpanManager
+import at.crowdware.nocode.texteditor.state.SpanManager
 import org.junit.Test
 import kotlin.test.assertEquals
 

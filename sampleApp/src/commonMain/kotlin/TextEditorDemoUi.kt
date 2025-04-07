@@ -12,15 +12,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.darkrockstudios.texteditor.TextEditor
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.markdown.toAnnotatedStringFromMarkdown
-import com.darkrockstudios.texteditor.markdown.withMarkdown
-import com.darkrockstudios.texteditor.rememberTextEditorStyle
-import com.darkrockstudios.texteditor.richstyle.SpellCheckStyle
-import com.darkrockstudios.texteditor.state.SpanClickType
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.rememberTextEditorState
+import at.crowdware.nocode.texteditor.TextEditor
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.markdown.toAnnotatedStringFromMarkdown
+import at.crowdware.nocode.texteditor.markdown.withMarkdown
+import at.crowdware.nocode.texteditor.rememberTextEditorStyle
+import at.crowdware.nocode.texteditor.richstyle.SpellCheckStyle
+import at.crowdware.nocode.texteditor.state.SpanClickType
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.rememberTextEditorState
 
 enum class DemoContent {
 	Empty,

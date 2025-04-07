@@ -3,9 +3,9 @@ package markdown
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.markdown.MarkdownExtension
-import com.darkrockstudios.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.markdown.MarkdownExtension
+import at.crowdware.nocode.texteditor.state.TextEditorState
 
 fun MarkdownExtension.updateMarkdownConfiguration(newConfig: MarkdownConfiguration) {
 	val oldConfig = markdownConfiguration
@@ -26,9 +26,9 @@ fun MarkdownExtension.updateMarkdownConfiguration(newConfig: MarkdownConfigurati
  * @param newConfig The new configuration to apply
  */
 internal fun updateMarkdownStyles(
-	state: TextEditorState,
-	oldConfig: MarkdownConfiguration,
-	newConfig: MarkdownConfiguration
+    state: TextEditorState,
+    oldConfig: MarkdownConfiguration,
+    newConfig: MarkdownConfiguration
 ) {
 	if (state.textLines.isEmpty()) return
 

@@ -9,10 +9,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.darkrockstudios.texteditor.codeeditor.CodeEditor
-import com.darkrockstudios.texteditor.codeeditor.rememberCodeEditorStyle
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.rememberTextEditorState
+import at.crowdware.nocode.texteditor.codeeditor.CodeEditor
+import at.crowdware.nocode.texteditor.codeeditor.rememberCodeEditorStyle
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.rememberTextEditorState
 
 @Composable
 fun CodeEditorDemoUi(

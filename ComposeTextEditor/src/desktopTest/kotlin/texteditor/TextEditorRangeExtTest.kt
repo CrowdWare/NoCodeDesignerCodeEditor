@@ -1,7 +1,7 @@
 package texteditor
 
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.TextEditorRange
 import org.junit.Test
 import kotlin.test.assertEquals
 

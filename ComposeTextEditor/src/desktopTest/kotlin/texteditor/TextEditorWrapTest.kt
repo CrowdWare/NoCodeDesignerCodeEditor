@@ -5,11 +5,11 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.unit.IntSize
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.richstyle.RichSpan
-import com.darkrockstudios.texteditor.state.RichSpanManager
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.toCharacterIndex
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.richstyle.RichSpan
+import at.crowdware.nocode.texteditor.state.RichSpanManager
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.toCharacterIndex
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope

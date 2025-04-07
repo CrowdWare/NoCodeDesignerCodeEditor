@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
-import com.darkrockstudios.texteditor.markdown.MarkdownStyles
+import at.crowdware.nocode.texteditor.markdown.MarkdownStyles
 
 const val alice_wounder_land = """
   **Down the Rabbit-Hole**

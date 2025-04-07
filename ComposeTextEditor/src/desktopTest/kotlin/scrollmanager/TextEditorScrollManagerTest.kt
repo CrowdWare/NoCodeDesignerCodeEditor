@@ -5,10 +5,10 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.IntSize
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.LineWrap
-import com.darkrockstudios.texteditor.state.TextEditorScrollManager
-import com.darkrockstudios.texteditor.state.TextEditorScrollState
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.LineWrap
+import at.crowdware.nocode.texteditor.state.TextEditorScrollManager
+import at.crowdware.nocode.texteditor.state.TextEditorScrollState
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

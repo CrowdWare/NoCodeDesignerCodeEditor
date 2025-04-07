@@ -3,10 +3,10 @@ package texteditmanager.redo
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.TextEditorRange
-import com.darkrockstudios.texteditor.state.TextEditOperation
-import com.darkrockstudios.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.state.TextEditOperation
+import at.crowdware.nocode.texteditor.state.TextEditorState
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import kotlin.test.BeforeTest

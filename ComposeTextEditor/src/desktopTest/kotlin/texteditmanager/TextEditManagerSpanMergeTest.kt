@@ -4,8 +4,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import com.darkrockstudios.texteditor.state.SpanManager
-import com.darkrockstudios.texteditor.utils.mergeAnnotatedStrings
+import at.crowdware.nocode.texteditor.state.SpanManager
+import at.crowdware.nocode.texteditor.utils.mergeAnnotatedStrings
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before

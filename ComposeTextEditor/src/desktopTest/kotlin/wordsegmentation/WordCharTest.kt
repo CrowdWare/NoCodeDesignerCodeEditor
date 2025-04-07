@@ -1,6 +1,6 @@
 package wordsegmentation
 
-import com.darkrockstudios.texteditor.state.isWordChar
+import at.crowdware.nocode.texteditor.state.isWordChar
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

@@ -1,8 +1,8 @@
 package spans
 
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.TextEditorRange
-import com.darkrockstudios.texteditor.richstyle.RichSpan
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.richstyle.RichSpan
 import org.junit.Test
 import utils.TestStyle
 import kotlin.test.assertFalse

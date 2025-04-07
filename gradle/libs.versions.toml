@@ -13,15 +13,6 @@ markdown = "0.7.3"
 mockk = "1.13.13"
 kotlinx-coroutines-test = "1.9.0"
 
-activity-ktx = "1.10.1"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.10.1"
-composeBom = "2025.03.01"
-
-symspellkt = "3.3.0"
-
-nexus-publish = "2.0.0"
-
 [libraries]
 jetbrains-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 jetbrains-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit" }
@@ -34,26 +25,8 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 markdown = { module = "org.jetbrains:markdown", version.ref = "markdown" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-ui = { group = "androidx.compose.ui", name = "ui" }
-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-material3 = { group = "androidx.compose.material3", name = "material3" }
-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity-ktx" }
-
-nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }
-
-symspellkt = { module = "com.darkrockstudios:symspellkt", version.ref = "symspellkt" }
-symspellkt-fdic = { module = "com.darkrockstudios:symspellktfdic", version.ref = "symspellkt" }
 
 [plugins]
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }

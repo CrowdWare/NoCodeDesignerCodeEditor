@@ -1,7 +1,7 @@
 package wordsegmentation
 
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.wordSegments
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.wordSegments
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.test.TestScope

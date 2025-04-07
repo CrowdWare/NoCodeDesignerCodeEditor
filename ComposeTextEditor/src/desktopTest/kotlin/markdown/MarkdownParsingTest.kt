@@ -1,6 +1,6 @@
 package markdown
 
-import com.darkrockstudios.texteditor.markdown.toAnnotatedStringFromMarkdown
+import at.crowdware.nocode.texteditor.markdown.toAnnotatedStringFromMarkdown
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

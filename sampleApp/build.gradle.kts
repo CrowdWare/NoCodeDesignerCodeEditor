@@ -10,22 +10,12 @@ kotlin {
 	applyDefaultHierarchyTemplate()
 	jvm("desktop")
 
-	wasmJs {
-		moduleName = "sampleApp"
-		browser {
-			commonWebpackConfig {
-				outputFileName = "sampleApp.js"
-			}
-		}
-		binaries.executable()
-	}
 
 	sourceSets {
 
 		val commonMain by getting {
 			dependencies {
 				implementation(projects.composeTextEditor)
-				implementation(projects.composeTextEditorSpellCheck)
 				implementation(compose.runtime)
 				implementation(compose.foundation)
 				implementation(compose.material3)
@@ -34,8 +24,6 @@ kotlin {
 				implementation(compose.components.resources)
 				implementation(compose.components.uiToolingPreview)
 				implementation(compose.components.resources)
-				implementation(libs.symspellkt)
-				implementation(libs.symspellkt.fdic)
 			}
 		}
 
@@ -75,7 +63,7 @@ compose.desktop {
 
 		nativeDistributions {
 			targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-			packageName = "com.darkrockstudios.texteditor"
+			packageName = "at.crowdware.nocode.texteditor"
 			packageVersion = "1.0.0"
 		}
 	}

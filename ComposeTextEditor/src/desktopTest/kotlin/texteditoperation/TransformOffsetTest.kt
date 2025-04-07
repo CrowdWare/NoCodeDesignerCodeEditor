@@ -5,10 +5,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.unit.IntSize
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.TextEditorRange
-import com.darkrockstudios.texteditor.state.TextEditOperation
-import com.darkrockstudios.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.state.TextEditOperation
+import at.crowdware.nocode.texteditor.state.TextEditorState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope

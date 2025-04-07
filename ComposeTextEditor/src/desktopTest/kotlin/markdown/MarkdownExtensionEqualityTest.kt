@@ -2,9 +2,9 @@ package markdown
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.markdown.MarkdownExtension
-import com.darkrockstudios.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.markdown.MarkdownExtension
+import at.crowdware.nocode.texteditor.state.TextEditorState
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest

@@ -1,10 +1,10 @@
 package wordsegmentation
 
 import androidx.compose.ui.text.AnnotatedString
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.TextEditorRange
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.wordSegments
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.wordSegments
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import org.junit.Test

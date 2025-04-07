@@ -2,8 +2,8 @@ package markdown
 
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.unit.sp
-import com.darkrockstudios.texteditor.markdown.MarkdownConfiguration
-import com.darkrockstudios.texteditor.markdown.MarkdownExtension
+import at.crowdware.nocode.texteditor.markdown.MarkdownConfiguration
+import at.crowdware.nocode.texteditor.markdown.MarkdownExtension
 
 private val FONT_SIZES = listOf(
 	12f, 14f, 16f, 18f, 20f, 24f, 32f
@@ -36,8 +36,8 @@ private fun getNextFontSize(currentSize: Float?, increase: Boolean): Float {
  * This affects all styling in the document that uses markdown styles
  */
 private fun changeFontSize(
-	markdownExtension: MarkdownExtension,
-	increase: Boolean
+    markdownExtension: MarkdownExtension,
+    increase: Boolean
 ) {
 	val currentConfig = markdownExtension.markdownConfiguration
 

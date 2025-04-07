@@ -1,7 +1,7 @@
 package texteditor.state
 
 import androidx.compose.ui.text.AnnotatedString
-import com.darkrockstudios.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.TextEditorState
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest

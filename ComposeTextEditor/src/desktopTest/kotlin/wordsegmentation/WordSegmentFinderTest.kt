@@ -1,8 +1,8 @@
 package wordsegmentation
 
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.findWordSegmentAt
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.findWordSegmentAt
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import org.junit.Before

@@ -33,19 +33,19 @@ import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.unit.dp
-import com.darkrockstudios.texteditor.markdown.MarkdownExtension
-import com.darkrockstudios.texteditor.state.TextEditorState
-import com.darkrockstudios.texteditor.state.getRichSpansAtPosition
-import com.darkrockstudios.texteditor.state.getRichSpansInRange
-import com.darkrockstudios.texteditor.state.getSpanStylesInRange
+import at.crowdware.nocode.texteditor.markdown.MarkdownExtension
+import at.crowdware.nocode.texteditor.state.TextEditorState
+import at.crowdware.nocode.texteditor.state.getRichSpansAtPosition
+import at.crowdware.nocode.texteditor.state.getRichSpansInRange
+import at.crowdware.nocode.texteditor.state.getSpanStylesInRange
 import markdown.decreaseFontSize
 import markdown.increaseFontSize
 
 @Composable
 fun TextEditorToolbar(
-	mardkown: MarkdownExtension,
-	markdownControls: Boolean,
-	modifier: Modifier = Modifier,
+    mardkown: MarkdownExtension,
+    markdownControls: Boolean,
+    modifier: Modifier = Modifier,
 ) {
 	val state = remember(mardkown) { mardkown.editorState }
 

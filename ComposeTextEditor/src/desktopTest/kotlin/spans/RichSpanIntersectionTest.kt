@@ -2,10 +2,10 @@ package spans
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.TextLayoutResult
-import com.darkrockstudios.texteditor.CharLineOffset
-import com.darkrockstudios.texteditor.LineWrap
-import com.darkrockstudios.texteditor.TextEditorRange
-import com.darkrockstudios.texteditor.richstyle.RichSpan
+import at.crowdware.nocode.texteditor.CharLineOffset
+import at.crowdware.nocode.texteditor.LineWrap
+import at.crowdware.nocode.texteditor.TextEditorRange
+import at.crowdware.nocode.texteditor.richstyle.RichSpan
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Test

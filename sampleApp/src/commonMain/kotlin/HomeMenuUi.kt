@@ -34,10 +34,6 @@ fun HomeMenu(
 				Text("Markdown Editor (Blank)")
 			}
 
-			Button(onClick = { navigateTo(Destination.SpellChecking) }) {
-				Text("Spell Check")
-			}
-
 			Button(onClick = { navigateTo(Destination.CodeEditor) }) {
 				Text("Code Editor")
 			}

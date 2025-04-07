@@ -4,23 +4,11 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    id("module.publication")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
     jvm("desktop")
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        moduleName = "ComposeTextEditor"
-        browser {
-            commonWebpackConfig {
-                outputFileName = "composeTextEditorLibrary.js"
-            }
-        }
-        binaries.library()
-    }
 
     sourceSets {
         val commonMain by getting {
