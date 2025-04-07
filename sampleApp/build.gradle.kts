@@ -4,19 +4,12 @@ plugins {
 	alias(libs.plugins.kotlinMultiplatform)
 	alias(libs.plugins.composeMultiplatform)
 	alias(libs.plugins.composeCompiler)
-	alias(libs.plugins.android.application)
 }
 
 kotlin {
 	applyDefaultHierarchyTemplate()
 	jvm("desktop")
-	androidTarget {
-		compilations.all {
-			kotlinOptions {
-				jvmTarget = libs.versions.jvm.get()
-			}
-		}
-	}
+
 	wasmJs {
 		moduleName = "sampleApp"
 		browser {
@@ -73,22 +66,7 @@ kotlin {
 				implementation(libs.kotlinx.coroutines.test.jvm)
 			}
 		}
-
-		val androidMain by getting {
-			dependencies {
-				implementation(libs.activity.ktx)
-				implementation(compose.runtime)
-				implementation(compose.foundation)
-				implementation(compose.material3)
-				implementation(compose.ui)
-				implementation(compose.components.resources)
-			}
-		}
 	}
-}
-
-compose.android {
-
 }
 
 compose.desktop {
@@ -105,47 +83,4 @@ compose.desktop {
 
 compose.experimental {
 	web.application {}
-}
-
-android {
-	namespace = "com.darkrockstudios.texteditor.sample"
-	compileSdk = 35
-	defaultConfig {
-		applicationId = "com.darkrockstudios.texteditor.sample"
-		minSdk = 26
-		targetSdk = 35
-		versionCode = 1
-		versionName = "1.0"
-
-		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-	}
-	buildFeatures {
-		compose = true
-	}
-	compileOptions {
-		sourceCompatibility = JavaVersion.toVersion(libs.versions.jvm.get().toInt())
-		targetCompatibility = JavaVersion.toVersion(libs.versions.jvm.get().toInt())
-	}
-
-	buildTypes {
-		debug {
-		}
-
-		release {
-		}
-	}
-}
-dependencies {
-	implementation(libs.lifecycle.runtime.ktx)
-	implementation(libs.activity.compose)
-	implementation(platform(libs.compose.bom))
-	implementation(libs.ui)
-	implementation(libs.ui.graphics)
-	implementation(libs.ui.tooling.preview)
-	implementation(libs.material3)
-	implementation(libs.activity.ktx)
-	androidTestImplementation(platform(libs.compose.bom))
-	androidTestImplementation(libs.ui.test.junit4)
-	debugImplementation(libs.ui.tooling)
-	debugImplementation(libs.ui.test.manifest)
 }

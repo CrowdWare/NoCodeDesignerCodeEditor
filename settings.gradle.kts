@@ -7,7 +7,6 @@ pluginManagement {
         google {
             mavenContent {
                 includeGroupAndSubgroups("androidx")
-                includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
             }
         }
@@ -21,7 +20,6 @@ dependencyResolutionManagement {
         google {
             mavenContent {
                 includeGroupAndSubgroups("androidx")
-                includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
             }
         }

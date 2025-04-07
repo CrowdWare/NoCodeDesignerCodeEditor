@@ -4,21 +4,13 @@ plugins {
 	alias(libs.plugins.kotlinMultiplatform)
 	alias(libs.plugins.composeMultiplatform)
 	alias(libs.plugins.composeCompiler)
-	alias(libs.plugins.android.library)
 	id("module.publication")
 }
 
 kotlin {
 	applyDefaultHierarchyTemplate()
 	jvm("desktop")
-	androidTarget {
-		publishLibraryVariants("release")
-		compilations.all {
-			kotlinOptions {
-				jvmTarget = libs.versions.jvm.get()
-			}
-		}
-	}
+
 	@OptIn(ExperimentalWasmDsl::class)
 	wasmJs {
 		moduleName = "ComposeTextEditorSpellCheck"
@@ -67,17 +59,5 @@ kotlin {
 				implementation(libs.symspellkt)
 			}
 		}
-	}
-}
-
-android {
-	namespace = "com.darkrockstudios.texteditor.spellcheck"
-	compileSdk = libs.versions.android.compileSdk.get().toInt()
-	defaultConfig {
-		minSdk = libs.versions.android.minSdk.get().toInt()
-	}
-	compileOptions {
-		sourceCompatibility = JavaVersion.toVersion(libs.versions.jvm.get().toInt())
-		targetCompatibility = JavaVersion.toVersion(libs.versions.jvm.get().toInt())
 	}
 }
