@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+group = "at.crowdware.nocode.texteditor"
+version = "1.0.0"
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)

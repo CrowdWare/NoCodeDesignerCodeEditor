@@ -30,6 +30,13 @@ fun TextEditorState.calculateCursorPosition(): CursorMetrics {
 	val (_, charIndex) = cursorPosition
 
 	val currentWrappedLineIndex = lineOffsets.getWrappedLineIndex(cursorPosition)
+	if (currentWrappedLineIndex !in lineOffsets.indices) {
+		// return dummy cursor metrics or handle gracefully
+		return CursorMetrics(
+			position = Offset.Zero,
+			height = 0f
+		)
+	}
 	val currentWrappedLine = lineOffsets[currentWrappedLineIndex]
 	val startOfLineOffset = lineOffsets.first { it.line == currentWrappedLine.line }.offset
 

@@ -1,4 +1,5 @@
 rootProject.name = "CodeEditor"
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
