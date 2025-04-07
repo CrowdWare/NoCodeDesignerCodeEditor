@@ -8,6 +8,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import at.crowdware.nocode.texteditor.TextEditorStyle
+import at.crowdware.nocode.texteditor.syntax.ExtendedColors
 
 data class CodeEditorStyle(
 	val baseStyle: TextEditorStyle,
@@ -16,7 +17,8 @@ data class CodeEditorStyle(
 	val gutterStartPadding: Dp = 8.dp,
 	val gutterEndPadding: Dp = 8.dp,
 	val gutterEndMargin: Dp = 8.dp,
-	var backgroundColor: Color = Color.DarkGray
+	var backgroundColor: Color = Color.DarkGray,
+	val extendedColors: ExtendedColors = ExtendedColors()
 )
 
 @Composable
@@ -34,11 +36,21 @@ fun rememberCodeEditorStyle(
 	gutterStartPadding: Dp = 8.dp,
 	gutterEndPadding: Dp = 8.dp,
 	gutterEndMargin: Dp = 8.dp,
+	extendedColors: ExtendedColors = ExtendedColors(
+		syntaxColor = Color.White,
+		bracketColor = Color.White,
+		attributeValueColor = Color.Green,
+		attributeNameColor = Color.Yellow,
+		mdHeader = Color.Magenta,
+		defaultTextColor = textColor,
+		linkColor = Color.Blue
+	)
 ): CodeEditorStyle = remember(
 	textColor, backgroundColor, placeholderText, placeholderColor,
 	cursorColor, selectionColor, focusedBorderColor, unfocusedBorderColor,
 	gutterBackgroundColor, gutterTextColor,
-	gutterStartPadding, gutterEndPadding, gutterEndMargin
+	gutterStartPadding, gutterEndPadding, gutterEndMargin,
+	extendedColors
 ) {
 	CodeEditorStyle(
 		baseStyle = TextEditorStyle(
@@ -57,5 +69,6 @@ fun rememberCodeEditorStyle(
 		gutterStartPadding = gutterStartPadding,
 		gutterEndPadding = gutterEndPadding,
 		gutterEndMargin = gutterEndMargin,
+		extendedColors = extendedColors
 	)
 }

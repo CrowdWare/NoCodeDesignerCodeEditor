@@ -13,9 +13,11 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import at.crowdware.nocode.texteditor.BasicTextEditor
@@ -24,6 +26,9 @@ import at.crowdware.nocode.texteditor.TextEditorStyle
 import at.crowdware.nocode.texteditor.focusBorder
 import at.crowdware.nocode.texteditor.state.TextEditorState
 import at.crowdware.nocode.texteditor.state.rememberTextEditorState
+import at.crowdware.nocode.texteditor.syntax.MarkdownSyntaxHighlighter
+import at.crowdware.nocode.texteditor.syntax.SmlSyntaxHighlighter
+import at.crowdware.nocode.texteditor.syntax.SyntaxMode
 import kotlin.math.absoluteValue
 import kotlin.math.log10
 
@@ -84,6 +89,7 @@ fun CodeEditor(
 	enabled: Boolean = true,
 	style: CodeEditorStyle = rememberCodeEditorStyle(),
 	onRichSpanClick: RichSpanClickListener? = null,
+	syntaxMode: SyntaxMode = SyntaxMode.NONE,
 ) {
 	// Set the font family for the TextEditorState to Monospace
 	state.fontFamily = FontFamily.Monospace
@@ -95,6 +101,14 @@ fun CodeEditor(
 
 	val gutterWidth by remember(state.lineOffsets, style, colWidth) {
 		derivedStateOf { gutterWidth(state, style, colWidth) }
+	}
+	
+	// Erstelle den passenden Syntax-Highlighter basierend auf dem syntaxMode
+	// Nicht remember verwenden, damit der Highlighter bei jeder Komposition neu erstellt wird
+	val syntaxHighlighter = when (syntaxMode) {
+		SyntaxMode.SML -> SmlSyntaxHighlighter(style.extendedColors)
+		SyntaxMode.MARKDOWN -> MarkdownSyntaxHighlighter(style.extendedColors)
+		SyntaxMode.NONE -> null
 	}
 
 	Surface(modifier = modifier.focusBorder(state.isFocused && enabled, style.baseStyle)) {
@@ -115,6 +129,10 @@ fun CodeEditor(
 			onRichSpanClick = onRichSpanClick,
 			decorateLine = { line: Int, offset: Offset, state: TextEditorState, _: TextEditorStyle ->
 				drawLineNumbers(line, offset, state, style, gutterWidth)
+			},
+			textTransformer = { text ->
+				// Wende den Syntax-Highlighter an, falls einer definiert ist
+				syntaxHighlighter?.filter(text) ?: TransformedText(text, androidx.compose.ui.text.input.OffsetMapping.Identity)
 			}
 		)
 	}

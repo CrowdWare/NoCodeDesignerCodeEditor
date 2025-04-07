@@ -24,6 +24,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalTextInputService
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import at.crowdware.nocode.texteditor.cursor.DrawCursor
@@ -37,6 +39,11 @@ import kotlinx.coroutines.delay
 
 private const val CURSOR_BLINK_SPEED_MS = 500L
 
+/**
+ * Funktion zur Transformation von Text, z.B. für Syntax-Highlighting
+ */
+typealias TextTransformer = (AnnotatedString) -> TransformedText
+
 @Composable
 fun BasicTextEditor(
 	state: TextEditorState = rememberTextEditorState(),
@@ -45,6 +52,7 @@ fun BasicTextEditor(
 	style: TextEditorStyle = rememberTextEditorStyle(),
 	onRichSpanClick: RichSpanClickListener? = null,
 	decorateLine: LineDecorator? = null,
+	textTransformer: TextTransformer? = null,
 ) {
 	val focusRequester = remember { FocusRequester() }
 	val interactionSource = remember { MutableInteractionSource() }
@@ -59,6 +67,21 @@ fun BasicTextEditor(
 			state.destroyInputSession(textInputService)
 		}
 	)
+	
+	// Wende den textTransformer auf den Text an, falls einer definiert ist
+	// Reagiere auf Änderungen an den Textzeilen und auf den textTransformer selbst
+	LaunchedEffect(state.textLines, textTransformer, state.editOperations) {
+		if (textTransformer != null) {
+			// Transformiere jede Zeile einzeln
+			for (i in state.textLines.indices) {
+				val line = state.textLines[i]
+				val transformedText = textTransformer(line).text
+				if (transformedText != line) {
+					state.updateLine(i, transformedText)
+				}
+			}
+		}
+	}
 
 	LaunchedEffect(Unit) {
 		if (enabled) {
