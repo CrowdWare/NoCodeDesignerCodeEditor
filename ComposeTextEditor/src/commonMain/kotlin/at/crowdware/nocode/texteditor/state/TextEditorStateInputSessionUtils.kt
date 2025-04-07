@@ -14,7 +14,7 @@ internal fun TextEditorState.textValueForLine(line: Int = cursor.position.line):
 		annotatedString = textLines[line],
 		selection = selection
 	)
-	println(value)
+	//println(value)
 	return value
 }
 

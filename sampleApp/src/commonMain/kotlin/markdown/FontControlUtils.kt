@@ -44,7 +44,7 @@ private fun changeFontSize(
 	// Determine the baseline font size to adjust from
 	val baselineFontSize = currentConfig.defaultTextStyle.fontSize.value
 	val newBaseFontSize = getNextFontSize(baselineFontSize, increase)
-	println("Font size OLD: $baselineFontSize NEW: $newBaseFontSize")
+	//println("Font size OLD: $baselineFontSize NEW: $newBaseFontSize")
 
 	val scaleFactor = newBaseFontSize / baselineFontSize
 

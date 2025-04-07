@@ -55,9 +55,9 @@ internal fun updateMarkdownStyles(
 			} else {
 				line.spanStyles.forEach { span ->
 					val newStyle = findMatchingStyle(span.item, styleMapping)
-					if (newStyle == newConfig.linkStyle) {
-						println("Found link")
-					}
+					//if (newStyle == newConfig.linkStyle) {
+						//println("Found link")
+					//}
 					if (newStyle != null) {
 						addStyle(newStyle, span.start, span.end)
 					} else {

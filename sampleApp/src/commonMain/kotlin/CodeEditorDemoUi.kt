@@ -33,9 +33,9 @@ fun CodeEditorDemoUi(
 	val state: TextEditorState = rememberTextEditorState(AnnotatedString(currentSample.value))
 
 	LaunchedEffect(Unit) {
-		state.editOperations.collect { operation ->
-			println("Applying Operation: $operation")
-		}
+		//state.editOperations.collect { operation ->
+		//	println("Applying Operation: $operation")
+		//}
 	}
 
 	Column(modifier = modifier) {

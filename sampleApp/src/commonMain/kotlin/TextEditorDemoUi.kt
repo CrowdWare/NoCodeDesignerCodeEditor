@@ -61,9 +61,9 @@ fun TextEditorDemoUi(
 			//state.addRichSpan(30, 35, HIGHLIGHT)
 		}
 
-		state.editOperations.collect { operation ->
-			println("Applying Operation: $operation")
-		}
+		//state.editOperations.collect { operation ->
+		//	println("Applying Operation: $operation")
+		//}
 	}
 
 	Column(modifier = modifier) {
@@ -96,14 +96,14 @@ fun TextEditorDemoUi(
 				.padding(8.dp)
 				.fillMaxSize(),
 			style = style,
-			onRichSpanClick = { span, clickType, _ ->
-				when (clickType) {
-					SpanClickType.TAP -> println("Touch tap on span: $span")
-					SpanClickType.PRIMARY_CLICK -> println("Left click on span: $span")
-					SpanClickType.SECONDARY_CLICK -> println("Right click on span: $span")
-				}
-				true
-			}
+			//onRichSpanClick = { span, clickType, _ ->
+				//when (clickType) {
+					//SpanClickType.TAP -> println("Touch tap on span: $span")
+					//SpanClickType.PRIMARY_CLICK -> println("Left click on span: $span")
+					//SpanClickType.SECONDARY_CLICK -> println("Right click on span: $span")
+				//}
+				//true
+			//}
 		)
 	}
 }

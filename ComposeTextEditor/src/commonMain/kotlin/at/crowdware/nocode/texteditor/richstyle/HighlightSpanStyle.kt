@@ -45,36 +45,3 @@ class HighlightSpanStyle(
 	}
 }
 
-fun printTextLayoutResult(textLayoutResult: TextLayoutResult) {
-	val lineCount = textLayoutResult.lineCount
-	println("TextLayoutResult:")
-	println("Total Lines: $lineCount")
-	println("Total Text Length: ${textLayoutResult.layoutInput.text.length}")
-	println("========================================")
-
-	for (lineIndex in 0 until lineCount) {
-		val lineStart = textLayoutResult.getLineStart(lineIndex)
-		val lineEnd = textLayoutResult.getLineEnd(lineIndex)
-		val lineBaseline = textLayoutResult.getLineBaseline(lineIndex)
-		val lineLeft = textLayoutResult.getLineLeft(lineIndex)
-		val lineRight = textLayoutResult.getLineRight(lineIndex)
-
-		println("Line $lineIndex:")
-		println("  Start Offset: $lineStart")
-		println("  End Offset: $lineEnd")
-		println("  Baseline: $lineBaseline")
-		println("  Left Edge: $lineLeft")
-		println("  Right Edge: $lineRight")
-		println(
-			"  Text: \"${
-				textLayoutResult.layoutInput.text.text.substring(
-					lineStart,
-					lineEnd
-				)
-			}\""
-		)
-		println("----------------------------------------")
-	}
-
-	println("========================================")
-}

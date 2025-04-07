@@ -15,7 +15,7 @@ internal inline fun <T> measureAndReport(message: String, block: () -> T): T {
 		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
 	}
 	val value = TimeSource.Monotonic.measureTimedValue(block)
-	println("$message: ${value.duration}")
+	//println("$message: ${value.duration}")
 
 	return value.value
 }

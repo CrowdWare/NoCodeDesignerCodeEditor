@@ -759,7 +759,7 @@ class TextEditorState(
 				}
 			},
 			onImeActionPerformed = { action ->
-				println("onImeActionPerformed: $action")
+				//println("onImeActionPerformed: $action")
 			},
 		)
 	}

@@ -17,7 +17,7 @@ class EscapedCharactersTest {
         """.trimIndent()
 
 		val annotatedString = markdownText.toAnnotatedStringFromMarkdown()
-		println("[DEBUG_LOG] Annotated string text: ${annotatedString.text}")
+		//println("[DEBUG_LOG] Annotated string text: ${annotatedString.text}")
 
 		val expectedString = """
             This is not *bold* and not _italic_ and not `code`.

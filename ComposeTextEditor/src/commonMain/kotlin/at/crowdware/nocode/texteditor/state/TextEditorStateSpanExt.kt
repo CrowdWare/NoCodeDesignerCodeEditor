@@ -86,18 +86,6 @@ fun at.crowdware.nocode.texteditor.state.TextEditorState.getSpanStylesInRange(ra
 	return spans
 }
 
-fun at.crowdware.nocode.texteditor.state.TextEditorState.debugRichSpans() {
-	println("=== Debug Rich Spans ===")
-	lineOffsets.forEach { wrap ->
-		if (wrap.richSpans.isNotEmpty()) {
-			println("Line ${wrap.line} (Virtual line ${wrap.virtualLineIndex}):")
-			wrap.richSpans.forEach { span ->
-				println("  ${span.style::class.simpleName} [${span.range.start.line}:${span.range.start.char} -> ${span.range.end.line}:${span.range.end.char}]")
-			}
-		}
-	}
-	println("=================")
-}
 
 fun at.crowdware.nocode.texteditor.state.TextEditorState.countOverlappingSpans(): Map<CharLineOffset, Int> {
 	val spanCounts = mutableMapOf<CharLineOffset, Int>()
@@ -131,22 +119,6 @@ fun at.crowdware.nocode.texteditor.state.TextEditorState.countOverlappingSpans()
 	}
 
 	return spanCounts
-}
-
-fun at.crowdware.nocode.texteditor.state.TextEditorState.debugSpanStyles(filterRange: TextEditorRange? = null) {
-	println("=== Debug SpanStyles ===")
-	textLines.forEachIndexed { lineIndex, line ->
-		if (line.spanStyles.isNotEmpty() && (filterRange == null || filterRange.containsLine(
-				lineIndex
-			))
-		) {
-			println("Line $lineIndex:")
-			line.spanStyles.forEach { span ->
-				println("  ${at.crowdware.nocode.texteditor.state.describeSpanStyle(span.item)} [${span.start} -> ${span.end}]")
-			}
-		}
-	}
-	println("=================")
 }
 
 private fun describeSpanStyle(style: SpanStyle): String {
