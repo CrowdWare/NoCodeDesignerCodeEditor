@@ -5,6 +5,7 @@ import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEvent
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.isCtrlPressed
+import androidx.compose.ui.input.key.isMetaPressed
 import androidx.compose.ui.input.key.isShiftPressed
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onPreviewKeyEvent
@@ -29,12 +30,12 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 		if (keyEvent.type == KeyEventType.KeyDown) {
 			when {
 				// Edit key combos
-				keyEvent.isCtrlPressed && keyEvent.key == Key.A -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.A -> {
 					state.selector.selectAll()
 					true
 				}
 
-				keyEvent.isCtrlPressed && keyEvent.key == Key.C -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.C -> {
 					state.selector.selection?.let {
 						val selectedText = state.selector.getSelectedText()
 						clipboardManager.setText(selectedText)
@@ -42,7 +43,7 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 					true
 				}
 
-				keyEvent.isCtrlPressed && keyEvent.key == Key.X -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.X -> {
 					state.selector.selection?.let {
 						val selectedText = state.selector.getSelectedText()
 						state.selector.deleteSelection()
@@ -51,7 +52,7 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 					true
 				}
 
-				keyEvent.isCtrlPressed && keyEvent.key == Key.V -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.V -> {
 					clipboardManager.getText()?.let { text ->
 						val curSelection = state.selector.selection
 						if (curSelection != null) {
@@ -64,12 +65,12 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 					true
 				}
 
-				keyEvent.isCtrlPressed && keyEvent.key == Key.Z -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.Z -> {
 					state.undo()
 					true
 				}
 
-				keyEvent.isCtrlPressed && keyEvent.key == Key.Y -> {
+				(keyEvent.isCtrlPressed || keyEvent.isMetaPressed) && keyEvent.key == Key.Y -> {
 					state.redo()
 					true
 				}
@@ -104,14 +105,14 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 
 					if (keyEvent.isShiftPressed) {
 						val initialPosition = state.cursorPosition
-						if (keyEvent.isCtrlPressed)
+						if (keyEvent.isCtrlPressed || keyEvent.isMetaPressed)
 							state.moveToPreviousWord()
 						else
 							state.cursor.moveLeft()
 						updateSelectionForCursorMovement(state, initialPosition)
 					} else {
 						state.selector.clearSelection()
-						if (keyEvent.isCtrlPressed)
+						if (keyEvent.isCtrlPressed || keyEvent.isMetaPressed)
 							state.moveToPreviousWord()
 						else
 							state.cursor.moveLeft()
@@ -122,14 +123,14 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 				keyEvent.key == Key.DirectionRight -> {
 					if (keyEvent.isShiftPressed) {
 						val initialPosition = state.cursorPosition
-						if (keyEvent.isCtrlPressed)
+						if (keyEvent.isCtrlPressed || keyEvent.isMetaPressed)
 							state.moveToNextWord()
 						else
 							state.cursor.moveRight()
 						updateSelectionForCursorMovement(state, initialPosition)
 					} else {
 						state.selector.clearSelection()
-						if (keyEvent.isCtrlPressed)
+						if (keyEvent.isCtrlPressed || keyEvent.isMetaPressed)
 							state.moveToNextWord()
 						else
 							state.cursor.moveRight()
