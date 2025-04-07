@@ -18,7 +18,8 @@ data class CodeEditorStyle(
 	val gutterEndPadding: Dp = 8.dp,
 	val gutterEndMargin: Dp = 8.dp,
 	var backgroundColor: Color = Color.DarkGray,
-	val extendedColors: ExtendedColors = ExtendedColors()
+	val extendedColors: ExtendedColors = ExtendedColors(),
+	val tabSize: Int = 4
 )
 
 @Composable
@@ -36,6 +37,7 @@ fun rememberCodeEditorStyle(
 	gutterStartPadding: Dp = 8.dp,
 	gutterEndPadding: Dp = 8.dp,
 	gutterEndMargin: Dp = 8.dp,
+	tabSize: Int = 4,
 	extendedColors: ExtendedColors = ExtendedColors(
 		syntaxColor = Color(0xFF61BEA6),
 		bracketColor = Color(0xFFF5D52E),  // Gelb für geschweifte Klammern
@@ -53,7 +55,7 @@ fun rememberCodeEditorStyle(
 	cursorColor, selectionColor, focusedBorderColor, unfocusedBorderColor,
 	gutterBackgroundColor, gutterTextColor,
 	gutterStartPadding, gutterEndPadding, gutterEndMargin,
-	extendedColors
+	tabSize, extendedColors
 ) {
 	CodeEditorStyle(
 		baseStyle = TextEditorStyle(
@@ -72,6 +74,7 @@ fun rememberCodeEditorStyle(
 		gutterStartPadding = gutterStartPadding,
 		gutterEndPadding = gutterEndPadding,
 		gutterEndMargin = gutterEndMargin,
-		extendedColors = extendedColors
+		extendedColors = extendedColors,
+		tabSize = tabSize
 	)
 }

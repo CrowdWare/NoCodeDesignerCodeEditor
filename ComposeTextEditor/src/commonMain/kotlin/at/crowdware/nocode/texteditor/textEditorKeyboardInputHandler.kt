@@ -100,6 +100,15 @@ internal fun Modifier.textEditorKeyboardInputHandler(
 					state.insertNewlineAtCursor()
 					true
 				}
+				
+				keyEvent.key == Key.Tab -> {
+					if (state.selector.selection != null) {
+						state.selector.deleteSelection()
+					}
+					// Verwende die insertTabAtCursor-Funktion, die die konfigurierte Tabulatorlänge verwendet
+					state.insertTabAtCursor()
+					true
+				}
 
 				keyEvent.key == Key.DirectionLeft -> {
 

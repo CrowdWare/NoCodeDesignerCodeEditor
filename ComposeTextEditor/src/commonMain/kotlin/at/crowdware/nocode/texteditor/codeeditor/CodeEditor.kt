@@ -93,6 +93,8 @@ fun CodeEditor(
 ) {
 	// Set the font family for the TextEditorState to Monospace
 	state.fontFamily = FontFamily.Monospace
+	// Setze die Tabulatorlänge aus dem Style
+	state.tabSize = style.tabSize
 	val density = LocalDensity.current
 
 	val colWidth by remember(state.textMeasurer, density) {

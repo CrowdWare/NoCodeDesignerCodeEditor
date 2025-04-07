@@ -34,6 +34,7 @@ class TextEditorState(
 	initialText: AnnotatedString? = null
 ) {
 	var fontFamily: FontFamily? = null
+	var tabSize: Int = 4
 	internal var textMeasurer: TextMeasurer = measurer
 		set(value) {
 			field = value
@@ -133,6 +134,11 @@ class TextEditorState(
 			cursorAfter = CharLineOffset(cursorPosition.line + 1, 0)
 		)
 		editManager.applyOperation(operation)
+	}
+	
+	fun insertTabAtCursor() {
+		val spaces = " ".repeat(tabSize)
+		insertStringAtCursor(spaces)
 	}
 
 	fun backspaceAtCursor() {
