@@ -39,6 +39,14 @@ This fork was created to:
 
 ---
 
+## Why “NoCode” if there’s code?
+NoCodeDesigner empowers users to build apps without writing code – but for advanced use cases, 
+we provide a fallback: a clean and structured editor for our own markup language (SML). 
+Think of it as LowCode under a NoCode umbrella — enabling power users without losing 
+simplicity for beginners.
+
+---
+
 ## What’s Working
 
 - Rich text rendering & editing
