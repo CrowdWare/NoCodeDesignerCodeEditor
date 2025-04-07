@@ -8,7 +8,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextMeasurer
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.unit.Constraints
 import at.crowdware.nocode.texteditor.CharLineOffset
@@ -378,6 +380,7 @@ class TextEditorState(
 			}
 			val textLayoutResult = textMeasurer.measure(
 				textLines[lineWrap.line],
+				style = TextStyle(fontFamily = FontFamily.Monospace),
 				constraints = Constraints(maxWidth = viewportSize.width.toInt())
 			)
 
@@ -483,6 +486,7 @@ class TextEditorState(
 				try {
 					textMeasurer.measure(
 						text = line,
+						style = TextStyle(fontFamily = FontFamily.Monospace),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
@@ -494,6 +498,7 @@ class TextEditorState(
 					// If measurement fails, create an empty layout result
 					textMeasurer.measure(
 						text = AnnotatedString(""),
+						style = TextStyle(fontFamily = FontFamily.Monospace),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
@@ -508,6 +513,7 @@ class TextEditorState(
 				} else {
 					textMeasurer.measure(
 						text = line,
+						style = TextStyle(fontFamily = FontFamily.Monospace),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
