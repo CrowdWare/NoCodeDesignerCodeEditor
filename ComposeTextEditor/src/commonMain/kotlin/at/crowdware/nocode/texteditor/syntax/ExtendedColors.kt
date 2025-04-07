@@ -14,6 +14,6 @@ data class ExtendedColors(
     val defaultTextColor: Color = Color(0xFFB0B0B0),
     val linkColor: Color = Color(0xFF5C7AF1),
     val elementColor: Color = Color(0xFF66CCFF),    // Blau für SML-Elemente wie Rectangle, Text, Button
-    val stringColor: Color = Color(0xFFBB8844),  // Braun für Strings
+    val stringColor: Color = Color(0xFFBE896F),  // Braun für Strings
     val numberColor: Color = Color(0xFF66CCFF)   // Hellblau für Zahlen
 )

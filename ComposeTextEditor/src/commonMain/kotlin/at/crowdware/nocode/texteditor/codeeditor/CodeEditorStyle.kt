@@ -47,7 +47,7 @@ fun rememberCodeEditorStyle(
 		defaultTextColor = Color(0xFFB0B0B0),
 		linkColor = Color(0xFF5C7AF1),
 		elementColor = Color(0xFF61BEA6),    // Blau für SML-Elemente
-		stringColor = Color(0xFFBB8844),  // Braun für Strings
+		stringColor = Color(0xFFBE896F),  // Braun für Strings
 		numberColor = Color(0xFF66CCFF)   // Hellblau für Zahlen
 	)
 ): CodeEditorStyle = remember(
