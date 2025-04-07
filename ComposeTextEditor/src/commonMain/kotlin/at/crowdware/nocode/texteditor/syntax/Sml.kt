@@ -7,7 +7,8 @@ import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.graphics.Color
 
-
+/*
+// new highlighter
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
@@ -113,7 +114,8 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
         return inString
     }
 }
-/*
+*/
+// legacy highlighter
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
@@ -162,4 +164,3 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
         return inString
     }
 }
-*/

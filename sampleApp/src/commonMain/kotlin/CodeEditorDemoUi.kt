@@ -84,12 +84,6 @@ fun CodeEditorDemoUi(
 
 		val style = rememberCodeEditorStyle(
 			placeholderText = "Enter code here",
-			textColor = Color.White,
-			backgroundColor = Color.DarkGray,
-			placeholderColor = Color.White,
-			gutterTextColor = Color.Gray,
-			gutterBackgroundColor = Color.DarkGray,
-			cursorColor = Color.White,
 		)
 
 		CodeEditor(
@@ -118,19 +112,23 @@ fun main() {
 
 // Beispielcode für SML
 private val SAMPLE_CODE_SML = """
-Rectangle {
+Page
+{
     width: 200
     height: 100
     color: "blue"
     page: "about"
     
-    Markdown {
+    Markdown 
+	{
         text: "# Titel\n" +
               "Lorem ipsum **dolor**\n" +
               "Noch eine Zeile\n"
     }
-    Spacer { amount: 16 }
-    Button {
+    Spacer 
+	{ amount: 16 }
+    Button 
+	{
         text: "Click me"
         onClicked: "page:about"
         width: 120
