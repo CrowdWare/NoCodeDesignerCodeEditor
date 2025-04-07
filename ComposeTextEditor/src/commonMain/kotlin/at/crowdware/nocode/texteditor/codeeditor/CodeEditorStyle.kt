@@ -4,6 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import at.crowdware.nocode.texteditor.TextEditorStyle
@@ -49,6 +50,7 @@ fun rememberCodeEditorStyle(
 			selectionColor = selectionColor,
 			focusedBorderColor = focusedBorderColor,
 			unfocusedBorderColor = unfocusedBorderColor,
+			fontFamily = FontFamily.Monospace
 		),
 		gutterBackgroundColor = gutterBackgroundColor,
 		gutterTextColor = gutterTextColor,

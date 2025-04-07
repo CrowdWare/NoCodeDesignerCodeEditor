@@ -3,7 +3,6 @@ package at.crowdware.nocode.texteditor
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.util.fastForEach
 import at.crowdware.nocode.texteditor.state.TextEditorState
 
@@ -41,7 +40,7 @@ internal fun DrawScope.DrawEditorText(
 					text = line,
 					topLeft = offset,
 					style = TextStyle.Default.copy(
-							color = style.placeholderColor, fontFamily = FontFamily.Monospace
+							color = style.placeholderColor, fontFamily = style.fontFamily
 					)
 				)
 

@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import at.crowdware.nocode.texteditor.BasicTextEditor
@@ -70,6 +71,7 @@ private fun DrawScope.drawLineNumbers(
 		text = lineNumberText,
 		style = TextStyle.Default.copy(
 			color = style.gutterTextColor,
+			fontFamily = style.baseStyle.fontFamily
 		),
 		topLeft = lineNumberOffset
 	)
@@ -83,6 +85,8 @@ fun CodeEditor(
 	style: CodeEditorStyle = rememberCodeEditorStyle(),
 	onRichSpanClick: RichSpanClickListener? = null,
 ) {
+	// Set the font family for the TextEditorState to Monospace
+	state.fontFamily = FontFamily.Monospace
 	val density = LocalDensity.current
 
 	val colWidth by remember(state.textMeasurer, density) {

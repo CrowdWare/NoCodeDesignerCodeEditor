@@ -33,6 +33,7 @@ class TextEditorState(
 	measurer: TextMeasurer,
 	initialText: AnnotatedString? = null
 ) {
+	var fontFamily: FontFamily? = null
 	internal var textMeasurer: TextMeasurer = measurer
 		set(value) {
 			field = value
@@ -380,7 +381,7 @@ class TextEditorState(
 			}
 			val textLayoutResult = textMeasurer.measure(
 				textLines[lineWrap.line],
-				style = TextStyle(fontFamily = FontFamily.Monospace),
+				style = if (fontFamily != null) TextStyle(fontFamily = fontFamily) else TextStyle(),
 				constraints = Constraints(maxWidth = viewportSize.width.toInt())
 			)
 
@@ -486,7 +487,7 @@ class TextEditorState(
 				try {
 					textMeasurer.measure(
 						text = line,
-						style = TextStyle(fontFamily = FontFamily.Monospace),
+						style = if (fontFamily != null) TextStyle(fontFamily = fontFamily) else TextStyle(),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
@@ -498,7 +499,7 @@ class TextEditorState(
 					// If measurement fails, create an empty layout result
 					textMeasurer.measure(
 						text = AnnotatedString(""),
-						style = TextStyle(fontFamily = FontFamily.Monospace),
+						style = if (fontFamily != null) TextStyle(fontFamily = fontFamily) else TextStyle(),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
@@ -513,7 +514,7 @@ class TextEditorState(
 				} else {
 					textMeasurer.measure(
 						text = line,
-						style = TextStyle(fontFamily = FontFamily.Monospace),
+						style = if (fontFamily != null) TextStyle(fontFamily = fontFamily) else TextStyle(),
 						constraints = Constraints(
 							maxWidth = maxOf(1, viewportSize.width.toInt()),
 							minHeight = 0,
