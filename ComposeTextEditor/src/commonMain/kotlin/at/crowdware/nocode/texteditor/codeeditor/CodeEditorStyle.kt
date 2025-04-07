@@ -38,12 +38,15 @@ fun rememberCodeEditorStyle(
 	gutterEndMargin: Dp = 8.dp,
 	extendedColors: ExtendedColors = ExtendedColors(
 		syntaxColor = Color.White,
-		bracketColor = Color.White,
+		bracketColor = Color.Yellow,  // Gelb für geschweifte Klammern
 		attributeValueColor = Color.Green,
 		attributeNameColor = Color.Yellow,
 		mdHeader = Color.Magenta,
 		defaultTextColor = textColor,
-		linkColor = Color.Blue
+		linkColor = Color.Blue,
+		elementColor = Color.Blue,    // Blau für SML-Elemente
+		stringColor = Color(0xFFBB8844),  // Braun für Strings
+		numberColor = Color(0xFF66CCFF)   // Hellblau für Zahlen
 	)
 ): CodeEditorStyle = remember(
 	textColor, backgroundColor, placeholderText, placeholderColor,
