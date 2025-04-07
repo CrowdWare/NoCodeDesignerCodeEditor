@@ -19,7 +19,7 @@ It also includes a critical fix to prevent crashes when the cursor is placed bey
 ## Based on
 
 Original Project:  
-👉 [darkrockstudios/texteditor](https://github.com/darkrockstudios/texteditor)  
+👉 [darkrockstudios/texteditor](https://github.com/Wavesonics/ComposeTextEditorLibrary)  
 MIT-licensed by **Adam Brown**
 
 Modifications and Desktop-only version maintained by **CrowdWare**  
