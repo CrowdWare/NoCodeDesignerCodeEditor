@@ -37,14 +37,14 @@ fun rememberCodeEditorStyle(
 	gutterEndPadding: Dp = 8.dp,
 	gutterEndMargin: Dp = 8.dp,
 	extendedColors: ExtendedColors = ExtendedColors(
-		syntaxColor = Color.White,
-		bracketColor = Color.Yellow,  // Gelb für geschweifte Klammern
-		attributeValueColor = Color.Green,
-		attributeNameColor = Color.Yellow,
-		mdHeader = Color.Magenta,
-		defaultTextColor = textColor,
-		linkColor = Color.Blue,
-		elementColor = Color.Blue,    // Blau für SML-Elemente
+		syntaxColor = Color(0xFF61BEA6),
+		bracketColor = Color(0xFFF5D52E),  // Gelb für geschweifte Klammern
+		attributeValueColor = Color(0xFFBE896F),
+		attributeNameColor = Color(0xFFA0D4FC),
+		mdHeader = Color(0xFFB774B1),
+		defaultTextColor = Color(0xFFB0B0B0),
+		linkColor = Color(0xFF5C7AF1),
+		elementColor = Color(0xFF61BEA6),    // Blau für SML-Elemente
 		stringColor = Color(0xFFBB8844),  // Braun für Strings
 		numberColor = Color(0xFF66CCFF)   // Hellblau für Zahlen
 	)

@@ -6,7 +6,8 @@ import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.graphics.Color
-/*
+
+
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
@@ -111,8 +112,8 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
         }
         return inString
     }
-}*/
-
+}
+/*
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
@@ -120,7 +121,7 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
         // Highlight SML elements
         val elementRegex = Regex("(\\w+)\\s*\\{")
         elementRegex.findAll(text).forEach { match ->
-            builder.addStyle(SpanStyle(color = Color.Red/*colors.syntaxColor*/), match.range.first, match.range.last)
+            builder.addStyle(SpanStyle(color = colors.elementColor), match.range.first, match.range.last)
             builder.addStyle(SpanStyle(color = colors.bracketColor), match.range.last, match.range.last + 1)
         }
 
@@ -161,3 +162,4 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
         return inString
     }
 }
+*/
