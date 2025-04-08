@@ -120,17 +120,35 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
 
-        // Highlight SML elements
-        val elementRegex = Regex("(\\w+)\\s*\\{")
-        elementRegex.findAll(text).forEach { match ->
-            builder.addStyle(SpanStyle(color = colors.elementColor), match.range.first, match.range.last)
-            builder.addStyle(SpanStyle(color = colors.bracketColor), match.range.last, match.range.last + 1)
-        }
-
-        // Highlight string values first (including those with colons)
-        val stringRegex = Regex("\"[^\"]*\"")
+        // Highlight string values first (including those with colons and multiline strings)
+        val stringRegex = Regex("\"(.|\\n)*?\"", RegexOption.DOT_MATCHES_ALL)
         stringRegex.findAll(text).forEach { match ->
             builder.addStyle(SpanStyle(color = colors.attributeValueColor), match.range.first, match.range.last + 1)
+        }
+
+        // Highlight SML elements (mit geschweifter Klammer auf derselben Zeile)
+        val elementRegex = Regex("(\\w+)\\s*\\{")
+        elementRegex.findAll(text).forEach { match ->
+            // Check if this element name is not within a string
+            if (!isWithinString(text, match.range.first)) {
+                builder.addStyle(SpanStyle(color = colors.elementColor), match.range.first, match.range.last)
+                builder.addStyle(SpanStyle(color = colors.bracketColor), match.range.last, match.range.last + 1)
+            }
+        }
+        
+        // Highlight Elementnamen (mit geschweifter Klammer auf der nächsten Zeile)
+        // Suche nach Wörtern am Ende einer Zeile
+        val lineEndRegex = Regex("(\\w+)\\s*$", RegexOption.MULTILINE)
+        lineEndRegex.findAll(text).forEach { match ->
+            // Check if this element name is not within a string
+            if (!isWithinString(text, match.range.first)) {
+                val elementName = match.groups[1]?.value ?: ""
+                val elementNameStart = match.range.first
+                val elementNameEnd = elementNameStart + elementName.length
+                
+                // Färbe alle Wörter am Ende einer Zeile ein
+                builder.addStyle(SpanStyle(color = colors.elementColor), elementNameStart, elementNameEnd)
+            }
         }
 
         // Highlight properties (excluding the colon)
@@ -142,8 +160,8 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
             }
         }
 
-        // Highlight colons and closing brackets
-        val colonAndBracketRegex = Regex(":|[}]")
+        // Highlight colons and brackets
+        val colonAndBracketRegex = Regex(":|[{}]")
         colonAndBracketRegex.findAll(text).forEach { match ->
             // Check if this colon or bracket is not within a string
             if (!isWithinString(text, match.range.first)) {
