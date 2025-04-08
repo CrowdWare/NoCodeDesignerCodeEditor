@@ -8,57 +8,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.graphics.Color
 
 
-// legacy highlighter
-/*
-class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
-    override fun filter(text: AnnotatedString): TransformedText {
-        val builder = AnnotatedString.Builder(text.text)
-
-        // Highlight SML elements
-        val elementRegex = Regex("(\\w+)\\s*\\{")
-        elementRegex.findAll(text).forEach { match ->
-            builder.addStyle(SpanStyle(color = colors.syntaxColor), match.range.first, match.range.last)
-            builder.addStyle(SpanStyle(color = colors.bracketColor), match.range.last, match.range.last + 1)
-        }
-
-        // Highlight string values first (including those with colons)
-        val stringRegex = Regex("\"[^\"]*\"")
-        stringRegex.findAll(text).forEach { match ->
-            builder.addStyle(SpanStyle(color = colors.attributeValueColor), match.range.first, match.range.last + 1)
-        }
-
-        // Highlight properties (excluding the colon)
-        val propertyRegex = Regex("(\\w+)(?=\\s*:)")
-        propertyRegex.findAll(text).forEach { match ->
-            // Check if this property name is not within a string
-            if (!isWithinString(text, match.range.first)) {
-                builder.addStyle(SpanStyle(color = colors.attributeNameColor), match.range.first, match.range.last + 1)
-            }
-        }
-
-        // Highlight colons and closing brackets
-        val colonAndBracketRegex = Regex(":|[}]")
-        colonAndBracketRegex.findAll(text).forEach { match ->
-            // Check if this colon or bracket is not within a string
-            if (!isWithinString(text, match.range.first)) {
-                builder.addStyle(SpanStyle(color = colors.bracketColor), match.range.first, match.range.last + 1)
-            }
-        }
-
-        return TransformedText(builder.toAnnotatedString(), OffsetMapping.Identity)
-    }
-
-    private fun isWithinString(text: CharSequence, index: Int): Boolean {
-        var inString = false
-        for (i in 0 until index) {
-            if (text[i] == '"') {
-                inString = !inString
-            }
-        }
-        return inString
-    }
-}*/
-
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         // Erstelle einen neuen Builder mit dem Text, aber ohne Annotationen
