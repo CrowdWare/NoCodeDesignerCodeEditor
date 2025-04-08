@@ -11,7 +11,8 @@ import androidx.compose.ui.graphics.Color
 // new highlighter
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
-        val builder = AnnotatedString.Builder(text)
+        // Erstelle einen neuen Builder mit dem Text, aber ohne Annotationen
+        val builder = AnnotatedString.Builder(text.text)
         
         // Highlight geschweifte Klammern
         val bracketRegex = Regex("[{}]")
@@ -118,7 +119,8 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
 // legacy highlighter
 class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
-        val builder = AnnotatedString.Builder(text)
+        // Erstelle einen neuen Builder mit dem Text, aber ohne Annotationen
+        val builder = AnnotatedString.Builder(text.text)
 
         // Highlight string values first (including those with colons and multiline strings)
         val stringRegex = Regex("\"(.|\\n)*?\"", RegexOption.DOT_MATCHES_ALL)
