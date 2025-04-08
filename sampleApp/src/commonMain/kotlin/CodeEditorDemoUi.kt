@@ -129,7 +129,7 @@ Page
 	{ amount: 16 }
     Button 
 	{
-        text: "Click me
+        text: "Click me"
         onClicked: "page:about"
         width: 120
         height: 40
