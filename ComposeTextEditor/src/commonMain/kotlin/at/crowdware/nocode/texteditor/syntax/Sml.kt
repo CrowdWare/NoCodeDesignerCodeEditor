@@ -54,7 +54,7 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
                     val start = i
                     while (i < length && (raw[i].isDigit() || raw[i] == '.')) i++
                     builder.addStyle(
-                        SpanStyle(color = colors.attributeValueColor),
+                        SpanStyle(color = colors.numberColor),
                         start, i
                     )
                 }
