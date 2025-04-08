@@ -121,8 +121,8 @@ Page
     
     Markdown 
 	{
-        text: "# Titel
-              Lorem ipsum **dolor**
+        text: "Titel
+              Lorem ipsumdolor
               Noch eine Zeile"
     }
     Spacer 
