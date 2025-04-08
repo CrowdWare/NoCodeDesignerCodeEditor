@@ -1,3 +1,5 @@
+![Preview](desktop.png)
+
 # NoCodeDesigner CodeEditor
 
 > A fork of [`darkrockstudios/texteditor`](https://github.com/darkrockstudios/texteditor), adapted and maintained by [CrowdWare](https://crowdware.info)
