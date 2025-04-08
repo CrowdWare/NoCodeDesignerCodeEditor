@@ -25,11 +25,15 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
                     i++
                     inString = false
                 } else {
-                    i = length // kein Ende, bleibt offen
+                    i = length
                 }
-                builder.addStyle(SpanStyle(color = colors.attributeValueColor), start, i)
+                builder.addStyle(
+                    SpanStyle(color = colors.attributeValueColor),
+                    start, i
+                )
             } else {
                 val c = raw[i]
+
                 if (c == '"') {
                     val start = i
                     i++
@@ -40,13 +44,63 @@ class SmlSyntaxHighlighter(val colors: ExtendedColors) : VisualTransformation {
                         inString = true
                         i = length
                     }
-                    builder.addStyle(SpanStyle(color = colors.attributeValueColor), start, i)
-                } else {
+                    builder.addStyle(
+                        SpanStyle(color = colors.attributeValueColor),
+                        start, i
+                    )
+                }
+
+                else if (c.isDigit()) {
+                    val start = i
+                    while (i < length && (raw[i].isDigit() || raw[i] == '.')) i++
+                    builder.addStyle(
+                        SpanStyle(color = colors.attributeValueColor),
+                        start, i
+                    )
+                }
+
+                else if (c.isLetter()) {
+                    val start = i
+                    while (i < length && (raw[i].isLetterOrDigit() || raw[i] == '_')) i++
+                    val after = raw.drop(i).takeWhile { it == ' ' || it == '\t' }
+                    val nextChar = raw.getOrNull(i + after.length)
+
+                    val isProperty = nextChar == ':'
+                    val isElement = nextChar == '{' || isWordAloneOnLine(raw, start, i)
+
+                    if (isProperty) {
+                        builder.addStyle(
+                            SpanStyle(color = colors.attributeNameColor),
+                            start, i
+                        )
+                    } else if (isElement) {
+                        builder.addStyle(
+                            SpanStyle(color = colors.elementColor),
+                            start, i
+                        )
+                    }
+                }
+
+                else if (c == ':' || c == '{' || c == '}') {
+                    builder.addStyle(
+                        SpanStyle(color = colors.bracketColor),
+                        i, i + 1
+                    )
+                    i++
+                }
+
+                else {
                     i++
                 }
             }
         }
 
         return TransformedText(builder.toAnnotatedString(), OffsetMapping.Identity)
+    }
+
+    private fun isWordAloneOnLine(text: String, start: Int, end: Int): Boolean {
+        val before = text.substring(0, start).takeLastWhile { it != '\n' }.trim()
+        val after = text.substring(end).takeWhile { it != '\n' }.trim()
+        return before.isEmpty() && after.isEmpty()
     }
 }
