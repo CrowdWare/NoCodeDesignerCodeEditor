@@ -11,6 +11,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import at.crowdware.nocode.texteditor.BasicTextEditor
@@ -62,23 +64,34 @@ private fun DrawScope.drawLineNumbers(
 ) {
 	val lineNumberText = (line + 1).toString()
 
-	val textWidth = state.textMeasurer.measure(text = lineNumberText).size.width
+	val gutterPx = gutterWidth.toPx()
 
+	// Gutter liegt links vom Textbereich
 	val gutterRightEdge = offset.x - style.gutterEndMargin.toPx()
-	val x = gutterRightEdge - textWidth - style.gutterEndPadding.toPx()
 
-	val gutterLeftEdge = gutterRightEdge - gutterWidth.toPx()
-	val constrainedX = x.coerceAtLeast(gutterLeftEdge + style.gutterStartPadding.toPx())
-	val lineNumberOffset = offset.copy(x = constrainedX)
+	val textLayoutResult = state.textMeasurer.measure(
+		text = lineNumberText,
+		style = TextStyle(
+			color = style.gutterTextColor,
+			fontFamily = style.baseStyle.fontFamily,
+			textAlign = TextAlign.Right
+		)
+	)
+
+	// Ziel: Rechter Rand des Textes soll genau auf gutterRightEdge liegen
+	val textWidth = textLayoutResult.size.width
+
+	val x = gutterRightEdge - textWidth
 
 	drawText(
 		textMeasurer = state.textMeasurer,
 		text = lineNumberText,
-		style = TextStyle.Default.copy(
+		style = TextStyle(
 			color = style.gutterTextColor,
-			fontFamily = style.baseStyle.fontFamily
+			fontFamily = style.baseStyle.fontFamily,
+			textAlign = TextAlign.Right // Wichtig!
 		),
-		topLeft = lineNumberOffset
+		topLeft = Offset(x, offset.y)
 	)
 }
 

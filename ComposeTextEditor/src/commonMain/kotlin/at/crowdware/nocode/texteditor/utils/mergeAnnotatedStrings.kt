@@ -45,7 +45,10 @@ internal fun SpanManager.mergeAnnotatedStrings(
 	newText: AnnotatedString? = null
 ): AnnotatedString = buildAnnotatedString {
 	// Add text outside the affected range
-	append(original.text.substring(0, start))
+
+	// avoid a here crash
+	if(original.text.isNotEmpty())
+		append(original.text.substring(0, start))
 	if (newText != null) append(newText.text)
 	append(original.text.substring(end))
 
